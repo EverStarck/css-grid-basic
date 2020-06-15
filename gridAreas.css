@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #cccccc;
+    color: #000;
+    font-size: 16px;
+}
+
+.container {
+    width: 90%;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4,auto);
+    grid-template-areas: "header header header"
+                         "content content aside"
+                         "content content aside"
+                         "widget-1 widget-2 aside"
+                         "footer footer footer";
+    gap: 20px;
+}
+
+.container header {
+    padding: 20px;
+    background-color: rgb(47, 73, 116);
+    color: #fff;
+
+    grid-area: header;
+}
+
+.container main {
+    padding: 20px;
+    background-color: #fff;
+
+    grid-area: content;
+}
+
+.container aside {
+    padding: 20px;
+    background-color: rgb(88, 218, 88);
+
+    grid-area: aside;
+
+    /* Center text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .widget-1, .widget-2 {
+    padding: 40px;
+    background-color: rgb(246, 223, 88);
+
+    /* Center text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .widget-1 {
+    grid-area: widget-1;
+}
+
+.container .widget-2 {
+    grid-area: widget-2;
+}
+
+.container footer {
+    padding: 20px;
+    background-color: rgb(143, 221, 241);
+    grid-area: footer;
+
+}
+
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+    .container {
+        background-color: rgb(0, 0, 0);
+        grid-template-areas: "header header header"
+                             "content content content"
+                             "aside aside aside"
+                             "widget-1 widget-1 widget-2"
+                             "footer footer footer";
+    }
+}
